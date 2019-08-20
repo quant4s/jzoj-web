@@ -1,9 +1,7 @@
 <template>
-    <b-card title="签到打卡" style="margin-bottom: 20px">
-        <b-button>
-            点击打卡
-        </b-button>
-    </b-card>
+    <el-card >
+        <el-button>签到打卡</el-button>
+    </el-card>
 </template>
 
 <script>
@@ -13,5 +11,7 @@
 </script>
 
 <style scoped>
-
+    .el-card {
+        margin-bottom: 20px;
+    }
 </style>

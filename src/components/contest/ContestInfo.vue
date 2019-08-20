@@ -1,14 +1,14 @@
 <template>
-    <b-card>
-        竞赛信息
-    </b-card>
+    <el-card>
+        竞赛信息:{{contest.subtitle}}
+    </el-card>
 </template>
 
 <script>
     export default {
         name: "ContestInfo",
         props: {
-            contest: {}
+            contest: Object
         }
     }
 </script>

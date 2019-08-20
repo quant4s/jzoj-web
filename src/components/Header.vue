@@ -35,7 +35,8 @@
 
 <style scoped>
     .header-wrapper{
-        background-color: rgba(0,0,0,.85);
+        background-color: rgba(0,0,0,0.8);
+        background-image: linear-gradient(90deg, rgb(35, 37, 38), rgb(65, 67, 69));
         color: #ffffff;
         text-align: left;
         padding: 15px;
@@ -49,10 +50,15 @@
         color: #aaa;
     }
     .user-nav {
-        float: right;
-        /*right: 15px;*/
-        /*top: 0px;*/
-        /*position: absolute;*/
+        position: absolute;
+        right: 32px;
+        top: 0;
+        /*float: right;*/
+        /*margin-top: -15px;*/
+        /*margin-right: 35px;*/
+        border-radius: 5px;
+        -moz-border-radius:25px;
+        /*border-bottom-right-radius: 5px;*/
     }
 
 

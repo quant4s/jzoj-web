@@ -3,9 +3,9 @@
         <div class="row">
             <Header caption="比赛列表"></Header>
             <div class="col-12">
-                <b-card border-variant="primary">
+                <el-card border-variant="primary">
                     <ContestList></ContestList>
-                </b-card>
+                </el-card>
             </div>
         </div>
     </div>

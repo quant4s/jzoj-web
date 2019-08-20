@@ -1,5 +1,8 @@
 <template>
-    <b-card header="统计" style="margin-bottom: 20px">
+    <el-card class="box-card" style="margin-bottom: 20px">
+        <div slot="header" class="clearfix">
+            <span>统计</span>
+        </div>
         <div class="stat">
             <div class="field" style="width: 30%">
                 <div class="key">提交</div>
@@ -22,7 +25,7 @@
                 <div class="value">{{problem.time_limit}}ms</div>
             </div>
         </div>
-    </b-card>
+    </el-card>
 </template>
 
 <script>
@@ -36,6 +39,10 @@
 </script>
 
 <style scoped>
+    .box-card {
+        margin-bottom: 20px;
+    }
+
     .functional-area {
         display: block;
         height: 60px;

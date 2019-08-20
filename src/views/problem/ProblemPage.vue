@@ -3,26 +3,25 @@
         <div class="row">
             <Header :caption="problem.title" />
             <div class="col-9">
-                <b-tabs border="success">
-                    <b-tab title="题目">
-                        <b-card border-variant="primary">
-                            <problem-view :problem="problem"></problem-view>
-                        </b-card>
-                    </b-tab>
-                    <b-tab title="提交代码"></b-tab>
-                    <b-tab title="测试数据"  v-if="problem.canShowTestcase"></b-tab>
-                    <b-tab title="标程" v-if="problem.canShowStdCode"></b-tab>
-                    <b-tab title="讨论">
+                <el-tabs v-model="activeName"  @tab-click="handleClick">
+                    <el-tab-pane label="题目" name="first">
+                        <problem-view :problem="problem"></problem-view>
+                    </el-tab-pane>
+                    <el-tab-pane label="提交代码"></el-tab-pane>
+                    <el-tab-pane label="测试数据"  v-if="problem.canShowTestcase"></el-tab-pane>
+                    <el-tab-pane label="标程" v-if="problem.canShowStdCode"></el-tab-pane>
+                    <el-tab-pane label="讨论">
                         <discussion-list :discussions="discussions"/>
-                    </b-tab>
-                    <b-tab title="提交记录">
+                    </el-tab-pane>
+                    <el-tab-pane label="提交记录">
                         <submission-list :submissions="submissions" />
-                    </b-tab>
-                    <b-tab title="管理题目" v-if="problem.canEdit">
+                    </el-tab-pane>
+                    <el-tab-pane label="管理题目" v-if="problem.canEdit">
                         <problem-edit :problem="problem"/>
-                    </b-tab>
-                </b-tabs>
+                    </el-tab-pane>
+                </el-tabs>
             </div>
+
             <div class="col-3">
                 <problem-info :problem = "problem"/>
                 <tag-list :tags="problem.tags"/>
@@ -53,6 +52,7 @@
         data: function () {
             return {
                 id: Number,
+                activeName: 'first',
                 discussions: [],
                 submissions: [],
                 testcases: [],

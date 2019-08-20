@@ -1,29 +1,14 @@
 <template>
-    <b-container fluid>
-        <b-form id="formLogin" name="formLogin"  style="margin-bottom: 20px;">
-            <div role="group">
-                <label for="username">用户名:</label>
-                <b-form-input
-                        id="username"
-                        v-model="username"
-                        placeholder="输入用户名"
-                        type="text"
-                        trim
-                ></b-form-input>
-            </div>
-            <div role="group">
-                <label for="password">密码:</label>
-                <b-form-input
-                        id="password"
-                        v-model="password"
-                        placeholder="输入密码"
-                        type="password"
-                        trim
-                ></b-form-input>
-            </div>
-        </b-form>
-        <b-button variant="primary" block @click="login">登录</b-button>
-    </b-container>
+    <el-form ref="form" :model="user" label-width="80px">
+        <el-form-item label="用户名:">
+            <el-input placeholder="请输入用户名" v-model="user.username"></el-input>
+        </el-form-item>
+        <el-form-item label="密码:">
+            <el-input placeholder="请输入密码" v-model="user.password" show-password></el-input>
+        </el-form-item>
+        <el-button type="primary" block @click="login">登录</el-button>
+        <el-button type="primary" block @click="login">登录</el-button>
+    </el-form>
 </template>
 
 <script>
@@ -34,8 +19,10 @@
         name: "Login",
         data: function() {
           return {
-              username: String,
-              password: String
+              user: {
+                  username: String,
+                  password: String
+              }
           }
         },
         methods: {
@@ -44,8 +31,8 @@
                 this.loading = true
                 this.$emit('login', 'fail')
                 let formData = {
-                    'username': this.username,
-                    'password': this.password
+                    'username': this.user.username,
+                    'password': this.user.password
                 }
                 api.login(formData).then(res=>{
                     this.loading = false

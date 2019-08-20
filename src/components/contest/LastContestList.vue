@@ -1,14 +1,14 @@
 <template>
-    <b-card title="近期比赛123">
+    <el-card header="近期比赛123">
         <div class="row">
             <div class="col-6" v-for="contest in contests" :key="contest.id">
-                <b-card :title="contest.title" >
+                <el-card >
+                    {{contest.title}}
                     {{contest.startTime}}-{{contest.endTime}}
-                </b-card>
+                </el-card>
             </div>
         </div>
-
-    </b-card>
+    </el-card>
 </template>
 
 <script>
@@ -32,7 +32,7 @@
                 api.getContestList().then(res => {
                     let data = res.data.data
                     this.loading = false
-                    this.contests = data.results
+                    this.contests = data
                     // this.total = data.total
                 }).catch(() => {
                     this.loading = false
@@ -43,5 +43,7 @@
 </script>
 
 <style scoped>
-
+    .el-card {
+        margin-bottom: 20px;
+    }
 </style>

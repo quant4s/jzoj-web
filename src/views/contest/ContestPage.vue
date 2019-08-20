@@ -5,19 +5,16 @@
                 <Header :caption="contest.title"></Header>
             </div>
             <div class="col-8">
-                <b-tabs pills card vertical>
-                    <b-tab title="比赛说明">
+                <el-tabs tab-position="left">
+                    <el-tab-pane label="比赛说明">
                         <contest-view :contest="contest"></contest-view>
-                    </b-tab>
-                    <b-tab title="题目列表">
-                        <contest-problem-list :contest="contest"></contest-problem-list>
-                    </b-tab>
-                    <b-tab title="排行榜"><b-card-text>Tab Contents 2</b-card-text></b-tab>
-                    <b-tab title="提交记录"><b-card-text>Tab Contents 3</b-card-text></b-tab>
-                    <b-tab title="编辑比赛">
-                        <contest-edit :contest="contest"></contest-edit>
-                    </b-tab>
-                </b-tabs>
+                    </el-tab-pane>
+                    <el-tab-pane label="题目列表"><contest-problem-list :contest="contest" /></el-tab-pane>
+                    <el-tab-pane label="排行榜"></el-tab-pane>
+                    <el-tab-pane label="提交记录"></el-tab-pane>
+                    <el-tab-pane label="编辑比赛"><contest-edit :contest="contest" /></el-tab-pane>
+                </el-tabs>
+
             </div>
             <div class="col-4">
                 <contest-info :contest="contest"/>

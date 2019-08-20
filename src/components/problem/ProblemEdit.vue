@@ -1,8 +1,13 @@
 <template>
     <div style="margin-bottom: 20px">
-        <b-form-input v-model="problem.id" placeholder="请输入题目编号,可以不填写"></b-form-input>
-        <b-form-input v-model="problem.title" placeholder="请输入题目名称"></b-form-input>
-
+        <el-form  :model="problem" label-width="80px">
+            <el-form-item label="编号:">
+                <el-input placeholder="请输入题目编号,可以不填写" v-model="problem.id"></el-input>
+            </el-form-item>
+            <el-form-item label="题目名称:">
+                <el-input placeholder="请输入题目名称" v-model="problem.title"></el-input>
+            </el-form-item>
+        </el-form>
         <mavon-editor v-model="problem.description"/>
 
     </div>

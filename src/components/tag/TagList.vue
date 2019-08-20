@@ -1,13 +1,11 @@
 <template>
-    <b-card  header="算法标签" style="margin-bottom: 20px">
-        <div class="container-fluid">
-            <div class="row">
-                <div v-for="tag in tags" class="col-4" :style="'margin-bottom: 20px; background-color: '+tag.color ">
-                    <router-link style="color: #ffffff" :to="'/tag/' + tag.id"> {{tag.name}}</router-link>
-                </div>
-            </div>
+    <el-card  style="margin-bottom: 20px">
+        <div slot="header" class="clearfix">
+            <span>算法标签</span>
         </div>
-    </b-card>
+                <el-tag v-for="tag in tags" :key="tag.id" size="medium"  @click="clickTag">{{tag.name}}</el-tag>
+
+    </el-card>
 </template>
 
 <script>
@@ -15,6 +13,11 @@
         name: "TagList",
         props: {
             tags: []
+        },
+        methods: {
+            clickTag: function () {
+
+            }
         }
     }
 </script>

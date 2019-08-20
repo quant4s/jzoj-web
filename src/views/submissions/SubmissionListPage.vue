@@ -3,9 +3,9 @@
         <div class="row">
             <Header caption="评测列表" />
             <div class="col-12">
-                <b-card border-variant="primary">
+                <el-card>
                     <submission-list :submissions="submissions"></submission-list>
-                </b-card>
+                </el-card>
             </div>
         </div>
     </div>

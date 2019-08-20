@@ -1,10 +1,10 @@
 <template>
-    <div>
-        提交人: {{submission.submitter}}
-        题目: {{submission.title}}
-        状态: {{submission.status}}
-        时间: {{submission.submit_time}}
-    </div>
+    <el-card>
+        <p>提交人: {{submission.user.username}}</p>
+        <p>题目: {{submission.problem.title}}</p>
+        <p>状态: {{submission.status}}</p>
+        <p>时间: {{submission.submit_time}}</p>
+    </el-card>
 </template>
 
 <script>
@@ -17,5 +17,7 @@
 </script>
 
 <style scoped>
-
+.el-card {
+    margin-bottom: 20px;
+}
 </style>

@@ -1,16 +1,16 @@
 <template>
     <div class="container">
-        <b-row>
-            <b-col md="10" class="my-1">
-                <b-pagination
-                        v-model="currentPage"
-                        :total-rows="totalRows"
-                        :per-page="perPage"
-                        limit="10"
-                        class="my-0"
-                ></b-pagination>
-            </b-col>
-        </b-row>
+        <el-row>
+            <el-col span="12" class="my-1">
+                <el-pagination
+                        :current-page="currentPage4"
+                        :page-sizes="[100, 200, 300, 400]"
+                        :page-size="30"
+                        layout="total, prev, pager, next, jumper"
+                        :total="400">
+                </el-pagination>
+            </el-col>
+        </el-row>
 
         <!-- Main table element -->
         <div class="list container">
@@ -19,8 +19,8 @@
                 <div class="did">编号</div>
                 <div class="title">题目</div>
                 <div class="tag">
-                    <b-button variant="primary" @click="switchTag" v-if="showTag">标签</b-button>
-                    <b-button variant="success" @click="switchTag" v-else>难度</b-button>
+                    <el-button type="primary" @click="switchTag" v-if="showTag">标签</el-button>
+                    <el-button type="success" @click="switchTag" v-else>难度</el-button>
                 </div>
                 <div class="rate">人数/通过率</div>
 
@@ -37,20 +37,14 @@
                 <div class="tag" v-else>
 
                 </div>
-                <div class="rate">{{problem.submit_num}}/{{problem.ac_num}}</div>
+                <div class="rate">
+                    <el-progress :text-inside="true" :stroke-width="26" :percentage="70">
+                        {{problem.submit_num}}/{{problem.ac_num}}
+                    </el-progress>
+                </div>
             </div>
         </div>
 
-        <b-row>
-            <b-col md="10" class="my-1">
-                <b-pagination
-                        v-model="currentPage"
-                        :total-rows="totalRows"
-                        :per-page="perPage"
-                        class="my-0"
-                ></b-pagination>
-            </b-col>
-        </b-row>
     </div>
 </template>
 
@@ -83,7 +77,6 @@
             },
             getProblems: function () {
                 api.getProblemList().then(res => {
-                    console.log(res.data)
                     // console.log(res)
                     let data = res.data.data
                     this.loadingTable = false

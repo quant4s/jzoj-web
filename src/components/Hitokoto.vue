@@ -1,7 +1,7 @@
 <template>
-    <b-card header="hitokoto" style="margin-bottom: 20px">
+    <el-card header="hitokoto">
         {{sentence}}
-    </b-card>
+    </el-card>
 </template>
 
 <script>
@@ -32,5 +32,7 @@
 </script>
 
 <style scoped>
-
+    .el-card {
+        margin-bottom: 20px;
+    }
 </style>

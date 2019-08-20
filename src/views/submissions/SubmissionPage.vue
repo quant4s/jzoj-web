@@ -3,19 +3,19 @@
         <div class="row">
             <Header :caption="id + ' ' +submission.problem.title+'测试详情'"/>
             <div class="col-8">
-                <b-tabs>
-                    <b-tab title="测试点">
+                <el-tabs>
+                    <el-tab-pane label="测试点">
                         <testcase-info :submission="submission"/>
-                    </b-tab>
-                    <b-tab title="源代码">
+                    </el-tab-pane>
+                    <el-tab-pane label="源代码">
                         <source-code :submission="submission"/>
-                    </b-tab>
-                </b-tabs>
+                    </el-tab-pane>
+                </el-tabs>
             </div>
             <div class="col-4">
-                <b-card>
+                <el-card>
                     <submission-info :submission="submission" />
-                </b-card>
+                </el-card>
             </div>
         </div>
     </div>

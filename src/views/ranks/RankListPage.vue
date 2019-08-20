@@ -3,9 +3,9 @@
     <div class="row">
         <Header caption="排名列表"></Header>
         <div class="col-12">
-            <b-card border-variant="primary">
+            <el-card>
                 <rank-list />
-            </b-card>
+            </el-card>
         </div>
     </div>
     </div>

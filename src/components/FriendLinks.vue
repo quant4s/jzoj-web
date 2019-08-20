@@ -1,12 +1,12 @@
 <template>
-    <el-card>
-        做题统计
+    <el-card header="友情链接">
+
     </el-card>
 </template>
 
 <script>
     export default {
-        name: "ProblemStat"
+        name: "FriendLinks"
     }
 </script>
 
