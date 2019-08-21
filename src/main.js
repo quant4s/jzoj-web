@@ -17,8 +17,6 @@ import 'element-ui/lib/theme-chalk/index.css';
 import store from "./store";
 
 Vue.use(ElementUI)
-
-// Vue.use(katex)
 Vue.use(mavonEditor)
 Vue.use(highlight)
 Vue.use(katex)

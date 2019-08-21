@@ -32,7 +32,7 @@
     export default {
         name: "ProblemStat",
         props: {
-            problem: {}
+            problem: Object
         }
 
     }

@@ -26,7 +26,7 @@
         name: "ProblemView",
         id: String,
         props: {
-            problem: {}
+            problem: Object
         }
     }
 </script>

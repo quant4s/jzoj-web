@@ -1,9 +1,9 @@
 <template>
     <div>
-        <mavon-editor :value="contest.description"
-                      editable="false"
-                      subfield="false"
-                      toolbarsFlag="false"
+        <mavon-editor :value="contest.subtitle"
+                      :editable='false'
+                      :subfield='false'
+                      :toolbarsFlag='false'
                       defaultOpen="preview">
         </mavon-editor>
     </div>

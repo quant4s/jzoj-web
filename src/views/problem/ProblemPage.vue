@@ -39,7 +39,6 @@
     import TagList from "../../components/tag/TagList";
     import ProblemStat from "../../components/problem/ProblemStat";
     import ProblemInfo from "../../components/problem/ProblemInfo";
-    import ProblemDiscussionList from "../../components/discussion/ProblemDiscussionList";
     import SubmissionList from "../../components/submission/SubmissionList";
     import DiscussionList from "../../components/discussion/DiscussionList";
 
@@ -48,15 +47,15 @@
         components: {
             DiscussionList,
             SubmissionList,
-            ProblemDiscussionList, ProblemInfo, ProblemStat, TagList, ProblemView, ProblemEdit, Header},
+            ProblemInfo, ProblemStat, TagList, ProblemView, ProblemEdit, Header},
         data: function () {
             return {
                 id: Number,
                 activeName: 'first',
-                discussions: [],
-                submissions: [],
-                testcases: [],
-                problem: {},
+                discussions: Array,
+                submissions: Array,
+                testcases: Array,
+                problem: Object,
                 loading: false,
             }
         },
@@ -82,7 +81,6 @@
             },
             getDiscussions: function (id) {
                 api.getProblemDiscussions(id).then(res =>{
-                    console.log(res.data.data)
                     this.discussions = res.data.data
                 }).catch(() => {
                     this.loading = false

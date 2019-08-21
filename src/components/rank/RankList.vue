@@ -6,11 +6,11 @@
             <div class="col-1 pass-number">通过数</div>
             <div class="col-1 score">得分</div>
         </div>
-        <div class="row" v-for="rank in ranks" :key="rank.user">
-            <div class="col-2 username">{{rank.user}}</div>
-            <div class="col-8 sign">{{rank.sign}}</div>
-            <div class="col-1 pass-number">{{rank.pass}}</div>
-            <div class="col-1 score">{{rank.score}}</div>
+        <div class="row" v-for="rank in ranklist" :key="rank.id">
+            <div class="col-2 username" ><router-link :to="'user/' + rank.id">{{rank.username}}</router-link></div>
+            <div class="col-8 sign">{{rank.information}}</div>
+            <div class="col-1 pass-number">{{rank.ac_num}}</div>
+            <div class="col-1 score">{{rank.rating}}</div>
         </div>
 
     </div>
@@ -20,26 +20,12 @@
     import api from "../../axios/api";
     export default {
         name: "RankList",
-        data: function () {
-            return {
-                ranks: []
-            }
-        },
-        mounted: function() {
-            this.init()
+        props: {
+            ranklist: Array
         },
         methods: {
-            init: function () {
-                this.getRanks()
-            },
-            getRanks: function () {
-                api.getRankList().then(res => {
-                    let data = res.data.data
-                    this.loadingTable = false
-                    this.ranks = data
-                }).catch(() => {
-                    this.loadingTable = false
-                })
+            clickUser: function (id) {
+                // TODO 路由
             }
         }
     }

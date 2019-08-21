@@ -31,8 +31,7 @@
                 <div class="did">{{problem.display_id}}</div>
                 <div class="title"><router-link :to="'/problem/'+problem.display_id">{{problem.title}}</router-link></div>
                 <div class="tag" v-if="showTag">
-                    <tag v-for="tag in problem.tags" :tag="tag" />
-
+                    <tag v-for="tag in problem.tags" :key="tag.id" :tag="tag" />
                 </div>
                 <div class="tag" v-else>
 
@@ -57,7 +56,7 @@
         components: {Tag},
         data: function() {
             return {
-                problems: [],
+                problems: Array,
                 showTag: true,
                 totalRows: 100,
                 currentPage: 1,

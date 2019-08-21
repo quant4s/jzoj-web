@@ -17,7 +17,7 @@
     export default {
         name: "ProblemInfo",
         props: {
-            problem: { user: {}}
+            problem: Object
         }
     }
 </script>

@@ -21,7 +21,7 @@
         components: {Header, SubmissionList},
         data: function () {
             return {
-                submissions: []
+                submissions: Array
             }
         },
         mounted: function() {
@@ -29,9 +29,9 @@
         },
         methods: {
             init: function() {
-                this.getSubmissions()
+                this.getSubmissionList()
             },
-            getSubmissions: function () {
+            getSubmissionList: function () {
                 api.getSubmissionList().then(res => {
                     // console.log(res)
                     let data = res.data.data

@@ -22,7 +22,7 @@
     export default {
         name: "TestcaseInfo",
         props: {
-            submission: {}
+            submission: Object
         },
         data: function() {
             return {

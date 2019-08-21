@@ -41,7 +41,7 @@
                     //     type: 'setUser',
                     //     user: res.data.data
                     // })
-                    console.log(res.data.data)
+
                     this.$emit('login', 'success')
                 }).catch(()=>{
                     this.loading = false

@@ -32,7 +32,7 @@
     export default {
         name: "SubmissionList",
         props: {
-            submissions: []
+            submissions: Array
         },
         data: function () {
             return {

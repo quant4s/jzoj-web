@@ -17,7 +17,7 @@
     export default {
         name: "ProblemEdit",
         props: {
-            problem: {}
+            problem: Object
         }
     }
 </script>

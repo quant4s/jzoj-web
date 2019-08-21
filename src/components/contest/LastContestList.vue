@@ -18,7 +18,7 @@
         name: "LastContestList",
         data: function () {
             return {
-                contests: []
+                contests: Array
             }
         },
         mounted: function() {

@@ -11,7 +11,7 @@
         name: "NoticeBoard",
         data: function () {
             return {
-                notices: []
+                notices: Array
             }
         },
         mounted: function() {

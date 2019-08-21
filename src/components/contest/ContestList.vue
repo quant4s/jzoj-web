@@ -28,7 +28,7 @@
 
         data: function() {
             return {
-                contests: [],
+                contests: Array,
                 constant: Constant
             }
         },

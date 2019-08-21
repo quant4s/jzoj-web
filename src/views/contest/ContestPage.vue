@@ -5,16 +5,14 @@
                 <Header :caption="contest.title"></Header>
             </div>
             <div class="col-8">
-                <el-tabs tab-position="left">
-                    <el-tab-pane label="比赛说明">
-                        <contest-view :contest="contest"></contest-view>
-                    </el-tab-pane>
-                    <el-tab-pane label="题目列表"><contest-problem-list :contest="contest" /></el-tab-pane>
-                    <el-tab-pane label="排行榜"></el-tab-pane>
-                    <el-tab-pane label="提交记录"></el-tab-pane>
-                    <el-tab-pane label="编辑比赛"><contest-edit :contest="contest" /></el-tab-pane>
-                </el-tabs>
-
+                <el-card>
+                    <el-tabs tab-position="left">
+                        <el-tab-pane label="题目列表"><contest-problem-list :contest="contest" /></el-tab-pane>
+                        <el-tab-pane label="排行榜"></el-tab-pane>
+                        <el-tab-pane label="提交记录"></el-tab-pane>
+                        <el-tab-pane label="编辑比赛"><contest-edit :contest="contest" /></el-tab-pane>
+                    </el-tabs>
+                </el-card>
             </div>
             <div class="col-4">
                 <contest-info :contest="contest"/>
@@ -35,7 +33,7 @@
         components: {ContestInfo, ContestProblemList, Header, ContestEdit, ContestView},
         data: function () {
             return {
-                contest: Object
+                contest: {}
             }
         },
         mounted: function() {
@@ -50,8 +48,7 @@
                 api.getContest(id).then(res => {
                     let data = res.data.data
                     this.loading = false
-                    this.contest = data.results
-                    // this.total = data.total
+                    this.contest = data
                 }).catch(() => {
                     this.loading = false
                 })

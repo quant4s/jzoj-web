@@ -31,7 +31,7 @@
         components: {TagList, ProblemList, Header},
         data: function () {
             return {
-                tags:[],
+                tags: Array,
                 activeName: 'first'
             }
         },
@@ -45,7 +45,6 @@
             getTags: function () {
                 api.getTagList().then(res => {
                     let data = res.data.data
-                    console.log(data)
                     this.loading = false
                     this.tags = data
                 }).catch(() => {

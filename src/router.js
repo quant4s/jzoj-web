@@ -16,8 +16,9 @@ import SubmissionListPage from "./views/submissions/SubmissionListPage";
 import SubmissionPage from "./views/submissions/SubmissionPage";
 import RankListPage from "./views/ranks/RankListPage";
 
-import {Constant} from "./components/Constant";
+import Constant from "./components/Constant";
 import DiscussionListPage from "./views/discussion/DiscussionListPage";
+import DiscussionPage from "./views/discussion/DiscussionPage";
 
 
 
@@ -31,6 +32,7 @@ const routes = [
     { path: '/submission/:id', component: SubmissionPage },
     { path: '/ranks', component: RankListPage },
     { path: '/discussions', component: DiscussionListPage},
+    { path: '/discussion/:id', component: DiscussionPage},
 ]
 
 
@@ -42,20 +44,20 @@ const router = new VueRouter({
     let user = sessionStorage.getItem("user")
     store.commit('setUser', user)
 
-// router.beforeEach((to, from, next) => {
-//     // Vue.prototype.$Loading.start()
-//  //   if (to.matched.some(record => record.meta.requiresAuth)) {
-//         if (!storage.get(Constant.STORAGE_KEY.AUTHED)) {
-//             next({
-//                 name: 'home'
-//             })
-//         }
-//         // else {
-//         //     next()
-//         // }
-//     // } else {
-//     //     next()
-//     // }
-// })
+router.beforeEach((to, from, next) => {
+    // Vue.prototype.$Loading.start()
+   if (to.matched.some(record => record.meta.requiresAuth)) {
+        if (!storage.get(Constant.STORAGE_KEY.AUTHED)) {
+            next({
+                name: 'home'
+            })
+        }
+        else {
+            next()
+        }
+    } else {
+        next()
+    }
+})
 //4.导出路由
 export default router;

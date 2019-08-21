@@ -1,17 +1,15 @@
 <template>
     <div>
-        ``` {{submission.language}}
-        {{submission.code}}
-        ```
+        {{article.title}}
+        <p>{{article.content}}</p>
     </div>
-
 </template>
 
 <script>
     export default {
-        name: "SourceCode",
+        name: "Discussion",
         props: {
-            submission: Object
+            article: Object
         }
     }
 </script>

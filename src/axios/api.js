@@ -100,12 +100,24 @@ export default {
 
     // 排名
     getRankList: function () {
-        return ajax('ranks', 'get')
+        return ajax('ranklist', 'get')
     },
 
     // 讨论
     getProblemDiscussions: function(problem_id) {
         return ajax('/problem/' + problem_id + '/discussions', 'get')
+    },
+
+    getDiscussions: function(type) {
+        return ajax('/discussions/' + type, 'get')
+    },
+
+    getDiscussion: function(id) {
+        return ajax('/discussion/' + id, 'get')
+    },
+
+    getCommentsOfDiscussion: function(id) {
+        return ajax('/discussion/' + id + '/comments', 'get')
     },
 
     // 其他

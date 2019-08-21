@@ -12,7 +12,7 @@
     export default {
         name: "TagList",
         props: {
-            tags: []
+            tags: Array
         },
         methods: {
             clickTag: function () {
